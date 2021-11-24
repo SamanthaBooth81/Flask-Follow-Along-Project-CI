@@ -1,9 +1,12 @@
 import os
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 @app.route("/")
@@ -36,8 +39,10 @@ def contact():
     if request.method == "POST":
         # the below print statements will retrieve the
         # form data input and show in the terminal
-        print(request.form.get("name"))
-        print(request.form["email"])
+        # print(request.form.get("name"))
+        # print(request.form["email"])
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
 
