@@ -21,7 +21,7 @@
     <!-- this flask for loop displays the text left and image right if not %2
     otherwise it will reverse the displate to image left and text right --> 
         <div class="col-md-7">
-            <h3>{{ loop.index }}. {{ member.name }}</h3>
+            <h3><a href="/about/{{ member.url }}"> {{ loop.index }}. {{ member.name }}</a></h3>
             <p>
                 {{ member.description}}
             </p>
@@ -38,7 +38,7 @@
                 class="featurette-image image-responsive">
         </div>
         <div class="col-md-7">
-            <h3>{{ loop.index }}. {{ member.name }}</h3>
+            <h3><a href="/about/{{ member.url }}"> {{ loop.index }}. {{ member.name }}</a></h3>
             <p>
                 {{ member.description}}
             </p>
